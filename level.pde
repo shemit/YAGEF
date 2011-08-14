@@ -1,4 +1,5 @@
 class Level {
+
   String _name;
   Player _player;
   ArrayList _enemies;
@@ -21,11 +22,27 @@ class Level {
   }
 
   void update() {
+    if (keyPressed == true) {
+      background(255);
+      if (key == 'w') {
+        _player.y--;
+      }
+      if (key == 's') {
+        _player.y++;
+      }
+      if (key == 'a') {
+        _player.x--;
+      }
+      if (key == 'd') {
+        _player.x++;
+      }
+    }
     _player.update();
     for (int i = 0; i < _enemies.size(); i++) {
       Enemy enemy = (Enemy)_enemies.get(i);
       enemy.update();
     }
   }
+
 }
 
