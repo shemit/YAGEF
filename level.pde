@@ -25,16 +25,16 @@ class Level {
     if (keyPressed == true) {
       background(255);
       if (key == 'w') {
-        _player.y--;
+        _player._y--;
       }
       if (key == 's') {
-        _player.y++;
+        _player._y++;
       }
       if (key == 'a') {
-        _player.x--;
+        _player._x--;
       }
       if (key == 'd') {
-        _player.x++;
+        _player._x++;
       }
     }
     _player.update();

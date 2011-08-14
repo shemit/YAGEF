@@ -1,5 +1,5 @@
 Player player = new Player(100, 100);
-Enemy enemy = new Enemy(100, 200);
+Enemy enemy = new Enemy(100, 200, player);
 Level level = new Level("Hello Level");
 
 void setup() {
