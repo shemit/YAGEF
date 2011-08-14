@@ -42,19 +42,31 @@ class Level {
   }
 
   void update() {
+    background(255);
     if (keyPressed == true) {
-      background(255);
       if (key == 'w') {
-        _player._y--;
+        if (!_player._is_moving) {
+          _player._is_moving = true;
+          _player._target_y--;
+        }
       }
       if (key == 's') {
-        _player._y++;
+        if (!_player._is_moving) {
+          _player._is_moving = true;
+          _player._target_y++;
+        }
       }
       if (key == 'a') {
-        _player._x--;
+        if (!_player._is_moving) {
+          _player._is_moving = true;
+          _player._target_x--;
+        }
       }
       if (key == 'd') {
-        _player._x++;
+        if (!_player._is_moving) {
+          _player._is_moving = true;
+          _player._target_x++;
+        }
       }
     }
     grid();
@@ -64,4 +76,5 @@ class Level {
       enemy.update();
     }
   }
+
 }
