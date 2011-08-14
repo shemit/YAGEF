@@ -9,7 +9,7 @@ class Player {
   boolean _is_moving;
 
   // Initialize the player
-  Player(int x, int y, int unit_size) {
+  Player(int x, int y, int width, int height, int unit_size) {
     // Set its grid coordinates
     _x = x;
     _y = y;
@@ -20,8 +20,8 @@ class Player {
 
     // Currently, set the height and width of the player to be the unit
     // size of the level
-    _height = 1;
-    _width = 1;
+    _height = height;
+    _width = width;
 
     // Set the unit size (in pixels) to match with the level's
     _unit_size = unit_size;
@@ -29,8 +29,6 @@ class Player {
     // Set its pixel position to align with the upper left corner pixel
     _pixel_x = _x * _unit_size + (_unit_size * _width / 2);
     _pixel_y = _y * _unit_size + (_unit_size * _height / 2);
-
-
 
     // Boolean that keeps track of movement
     _is_moving = false;
@@ -57,7 +55,7 @@ class Player {
     }
     ellipse(_pixel_x, 
             _pixel_y, 
-            _unit_size, _unit_size);
+            _width * _unit_size, _height * _unit_size);
   }
 }
 

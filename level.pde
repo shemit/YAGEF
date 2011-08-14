@@ -14,8 +14,8 @@ class Level {
   }
 
   void init() {
-    _player = new Player(2, 2, _grid_unit_size);
-    _enemies.add( new Enemy(4, 4, _grid_unit_size, _player));
+    _player = new Player(2, 2, 1, 1, _grid_unit_size);
+    _enemies.add(new Enemy(4, 4, 3, 3, _grid_unit_size, _player));
     _grid = new 
        int[_pixel_width/_grid_unit_size][_pixel_height/_grid_unit_size];
   }
