@@ -1,12 +1,19 @@
 class Player {
-  float _x, _y;
-  Player(float x, float y) {
+  int _x, _y;
+  int _unit_size;
+  int speed;
+  Player(int x, int y, int unit_size) {
     _x = x;
     _y = y;
+    _unit_size = unit_size;
+    println("unit size is: " + _unit_size);
   }
   void update() {
+    stroke(33);
     fill(255,255,255);
-    ellipse(_x, _y, 20, 20);
+    ellipse(_x * _unit_size - (_unit_size / 2), 
+            _y * _unit_size - (_unit_size / 2), 
+            _unit_size, _unit_size);
   }
 }
 
