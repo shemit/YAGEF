@@ -1,24 +1,30 @@
 class Level {
-  String name;
-  Player player;
-  ArrayList enemies;
+  String _name;
+  Player _player;
+  ArrayList _enemies;
 
-  Level(String lev_name) {
-    name = lev_name;
+  Level(String name) {
+    _name = name;
+    _enemies = new ArrayList();
   }
-  void init(Player init_player) {
-    player = init_player;
+
+  void init(Player player) {
+    _player = player;
   }
-  void set_enemies(ArrayList init_enemies) {
-    enemies.add(init_enemies);
+
+  void set_enemies(ArrayList enemies) {
+    _enemies = enemies;
   }
-  void add_enemy(Enemy an_enemy) {
-    enemies.add(an_enemy);
+
+  void add_enemy(Enemy enemy) {
+    _enemies.add(enemy);
   }
+
   void update() {
-    player.update();
-    for (int i = 0; i < enemies.size(); i++) {
-      enemies[i].update();
+    _player.update();
+    for (int i = 0; i < _enemies.size(); i++) {
+      Enemy enemy = (Enemy)_enemies.get(i);
+      enemy.update();
     }
   }
 }
