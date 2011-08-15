@@ -4,13 +4,5 @@ class Enemy extends Player{
     super(x, y, width, height, unit_size)
     _player = player;
   }
-  /*
-  void update() {
-    fill(255, 100, 0);
-    ellipse(_x * _unit_size + _unit_size * _width / 2, 
-            _y * _unit_size + _unit_size * _height / 2, 
-            _width * _unit_size, _height * _unit_size);
-  }
-  */
 }
 

@@ -11,11 +11,19 @@ class Level {
   Level(String name) {
     _name = name;
     _enemies = new ArrayList();
+    _enemies_enemies = new ArrayList();
   }
 
   void init() {
-    _player = new Player(2, 2, 1, 1, _grid_unit_size);
-    _enemies.add(new Enemy(4, 4, 3, 3, _grid_unit_size, _player));
+    _player = new Player(20, 20, 1, 1, _grid_unit_size, _enemies);
+    _player._name = 'Player';
+    _enemies_enemies.add(_player);
+    _enemies.add(new Player(4, 4, 1, 1, _grid_unit_size, _enemies_enemies));
+    for (int i = 0; i < _enemies.size(); i++) {
+      Player enemy = _player.get_enemy(i);
+      enemy._is_stalking = true;
+      enemy.stalk();
+    }
     _grid = new 
        int[_pixel_width/_grid_unit_size][_pixel_height/_grid_unit_size];
   }
@@ -28,7 +36,7 @@ class Level {
     _enemies = enemies;
   }
 
-  void add_enemy(Enemy enemy) {
+  void add_enemy(Player enemy) {
     _enemies.add(enemy);
   }
 
@@ -72,9 +80,8 @@ class Level {
     grid();
     _player.update();
     for (int i = 0; i < _enemies.size(); i++) {
-      Enemy enemy = (Enemy)_enemies.get(i);
+      Player enemy = (Player)_enemies.get(i);
       enemy.update();
     }
   }
-
 }

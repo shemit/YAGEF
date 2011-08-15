@@ -9,5 +9,6 @@ void setup() {
 }
 
 void draw() {
+  frameRate(30);
   level.update();
 }
